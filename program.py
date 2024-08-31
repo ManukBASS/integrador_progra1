@@ -1,4 +1,7 @@
 """Falta: 
+- Slicing
+- Funcion Lambda
+- Asiento Random 
 - Tickets 
 - Reportes (Recaudación, Pelicula más vista, etc..)
 - Aplicar descuentos 
