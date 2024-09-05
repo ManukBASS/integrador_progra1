@@ -1,7 +1,6 @@
 """Falta: 
 - Slicing
 - Funcion Lambda
-- Asiento Random 
 - Tickets 
 - Reportes (Recaudación, Pelicula más vista, etc..)
 - Aplicar descuentos 
@@ -13,15 +12,16 @@
 
 import random
 from users import loginUsuarios
-from snacks import selecionarSnack
+from snacks import seleccionarSnack
 from peliculas import seleccionarPelicula
 from asientos import seleccionarAsiento
+from reportes import generarReporte
 
 def main():
     asientos = [["🟢" for _ in range(6)] for _ in range(4)]
     loginUsuarios()
     seleccionarPelicula()
-    selecionarSnack()
+    seleccionarSnack()
     seleccionarAsiento(asientos)
     seleccionarAsiento(asientos)
 
