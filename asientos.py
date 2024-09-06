@@ -3,7 +3,7 @@ import random
 def asientosDisponibles(asientos):
     print("   " + "  ".join([str(i+1) for i in range(len(asientos[0]))]))
     for index, fila in enumerate(asientos):
-        print(f"{chr(65+index)}  " + "  ".join(fila))
+        print(f"{chr(65+index)} " + " ".join(fila))
 
 def seleccionarAsiento(asientos):
     preguntaInicial = int(input("""

@@ -24,6 +24,7 @@ def main():
     seleccionarSnack()
     seleccionarAsiento(asientos)
     seleccionarAsiento(asientos)
+    seleccionarAsiento(asientos)
 
 if __name__ == "__main__":
     main()
