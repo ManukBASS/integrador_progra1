@@ -1,4 +1,4 @@
-usuarios_registrados = ["manuzarraga99", "milagrosnunes99", "micaelaflores96"]
+usuarios_registrados = ["manuzarraga99", "milinunes99", "micaflores96"]
 descuentos = 0.15
 
 def loginUsuarios():
@@ -32,4 +32,5 @@ Ingrese una opción: """))
             flagAlnum = user.isalpha()
         usuarios_registrados.append(user)
         print(usuarios_registrados)
+        return descuentos
     
