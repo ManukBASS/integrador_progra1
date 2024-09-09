@@ -2,7 +2,8 @@
 - Slicing
 - Funcion Lambda
 - Reportes (Recaudación, Pelicula más vista, etc..)
-- Aplicar descuentos 
+- Aplicar descuentos
+- Validar asientos
 """
 
 from users import loginUsuarios
