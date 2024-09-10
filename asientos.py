@@ -17,6 +17,12 @@ Ingrese una opción: """))
         asiento = input("Ingrese el asiento que desea (Ej: B2): ")
         filaIndex = ord(asiento[0].upper()) - 65
         columnaIndex = int(asiento[1]) - 1
+        while int(asiento[1]) < 1 or int(asiento[1]) > 6 or ord(asiento[0].upper())<65 or ord(asiento[0].upper())>68 or len(asiento) > 2:
+              asiento = input("Asiento inexistente. Ingrese el asiento que desea (Ej: B2): ")
+              filaIndex = ord(asiento[0].upper()) - 65
+              columnaIndex = int(asiento[1]) - 1
+        
+        
 
         if asientos[filaIndex][columnaIndex] == "🟢":
             asientos[filaIndex][columnaIndex] = "🔴"
