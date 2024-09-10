@@ -56,7 +56,7 @@ Ingrese una opción: """))
         if otroAsiento == 2:
             print("""
                 Por favor, retire su entrada y deje pasar al siguiente usuario
-                ¡Disfrute su pelicula!""")
+                                ¡Disfrute su pelicula!""")
             imprimirTicket(pelicula, asientosSeleccionados, snacksSeleccionados)
             flagContinue = True
         if otroAsiento == -1:
