@@ -11,9 +11,10 @@ def main():
     flagContinue = True
     recaudacion=[]
 
-    while flagContinue:
+    while flagContinue == True:
         # Login del usuario y posible descuento
         descuento = loginUsuarios(recaudacion)
+
 
         # Seleccionar película y sala
         pelicula, sala = seleccionarPelicula()
@@ -79,8 +80,6 @@ Ingrese una opción: """))
                 Por favor, retire su entrada y deje pasar al siguiente usuario.
                                 ¡Disfrute su película!""")
             flagContinue = True
-        if otroAsiento == -1:
-            flagContinue = False
 
 
 

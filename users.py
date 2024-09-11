@@ -77,11 +77,9 @@ Ingrese una opción: """))
     #---------------------------------
     if preguntaInicial == -1:
         clave_admin = input("Ingrese clave de administrador: ")
-        if clave_admin == "admin123":
-            generarReporte(reportes)
-        else:
-            print("Clave de administrador incorrecta.")
-        return None
-    
+        while clave_admin != "admin123":
+            clave_admin = input("Clave incorrecta. Ingrese clave de administrador: ")
+            
+        generarReporte(reportes)
 
 
