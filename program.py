@@ -21,12 +21,10 @@ def main():
         
         pelicula, sala = seleccionarPelicula()
 
-        # Snacks
         snacksSeleccionados = []
         snack_elegido = seleccionarSnack()
         snacksSeleccionados.append(snack_elegido)
 
-        # Asientos
         asientosSeleccionados = []
         asiento, sala = seleccionarAsiento(sala)
         asientosSeleccionados.append(asiento)
@@ -52,7 +50,7 @@ Ingrese una opción: """))
             total_snacks = sum(snack[1] for snack in snacksSeleccionados)  
             total_entradas = PRECIO_ENTRADA * len(asientosSeleccionados)  
             
-            # Función lambda para calcular el total
+
             calcular_total = lambda entradas, snacks, desc: (entradas + snacks) * (1 - desc)
             calcular_total_sin_descuento = lambda entradas, snacks: entradas + snacks
             
@@ -63,10 +61,9 @@ Ingrese una opción: """))
                 total_a_pagar = calcular_total_sin_descuento(total_entradas, total_snacks)
                 print(f"Total sin descuento: ${total_a_pagar:.2f}")
             
-            # Imprimir ticket con el desglose de costos
+
             imprimirTicket(pelicula, asientosSeleccionados, snacksSeleccionados, total_entradas, total_snacks, total_a_pagar, recaudacion)
-            
-            # Acumulando la recaudación
+
             recaudacion.append(total_a_pagar)
 
 if __name__ == "__main__":
