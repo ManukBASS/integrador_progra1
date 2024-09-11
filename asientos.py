@@ -22,8 +22,6 @@ Ingrese una opción: """))
               filaIndex = ord(asiento[0].upper()) - 65
               columnaIndex = int(asiento[1]) - 1
         
-        
-
         if asientos[filaIndex][columnaIndex] == "🟢":
             asientos[filaIndex][columnaIndex] = "🔴"
             print(f"Asiento {asiento} seleccionado")
