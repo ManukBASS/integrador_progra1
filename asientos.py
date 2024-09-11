@@ -18,9 +18,9 @@ Ingrese una opción: """))
         filaIndex = ord(asiento[0].upper()) - 65
         columnaIndex = int(asiento[1]) - 1
         while int(asiento[1]) < 1 or int(asiento[1]) > 6 or ord(asiento[0].upper())<65 or ord(asiento[0].upper())>68 or len(asiento) > 2:
-              asiento = input("Asiento inexistente. Ingrese el asiento que desea (Ej: B2): ")
-              filaIndex = ord(asiento[0].upper()) - 65
-              columnaIndex = int(asiento[1]) - 1
+            asiento = input("Asiento inexistente. Ingrese el asiento que desea (Ej: B2): ")
+            filaIndex = ord(asiento[0].upper()) - 65
+            columnaIndex = int(asiento[1]) - 1
         
         
 
@@ -60,3 +60,7 @@ def seleccionarAsientoAleatorio(asientos):
     print(f"Se ha seleccionado aleatoriamente el asiento: {asientoSeleccionado}")
     
     return asientoSeleccionado, asientos
+
+
+
+
