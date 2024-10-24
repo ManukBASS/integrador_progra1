@@ -1,20 +1,10 @@
 def loginUsuarios():
     try:
         descuentos = 0.15
-        preguntaInicial = int(input("""¡Bienvenido! ¿Está registrado en nuestro cine? 
-    1 - Si
-    2 - No
-    3 - Deseo crear un usuario
-    -1 - Generar reporte
-    Ingrese una opción: """))
+        preguntaInicial = int(input("""¡Bienvenido! ¿Está registrado en nuestro cine? \n1 - Si\n2 - No\n3 - Deseo crear un usuario\n-1 - Generar reporte\nIngrese una opción: """))
         
         while preguntaInicial not in [1, 2, 3, -1]:
-            preguntaInicial = int(input("""Opción incorrecta, por favor elija una de las siguientes: 
-    1 - Si
-    2 - No
-    3 - Deseo crear un usuario
-    -1 - Generar reporte
-    Ingrese una opción: """))
+            preguntaInicial = int(input("""Opción incorrecta, por favor elija una de las siguientes: \n1 - Si\n2 - No\n3 - Deseo crear un usuario\n-1 - Generar reporte\nIngrese una opción:"""))
 
         if preguntaInicial == 1:
             
@@ -53,9 +43,6 @@ def loginUsuarios():
             clave_admin = input("Ingrese clave de administrador: ")
             while clave_admin != "admin123":
                 clave_admin = input("Clave incorrecta. Ingrese clave de administrador: ")
-        
-        
-            
             return 'reporte'
     except ValueError:
         print("Por favor, ingrese un valor numérico")
