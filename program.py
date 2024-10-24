@@ -1,5 +1,5 @@
 
-from users import loginUsuarios, usuarios_registrados
+from users import loginUsuarios
 from snacks import seleccionarSnack
 from peliculas import seleccionarPelicula
 from asientos import seleccionarAsiento
@@ -7,11 +7,10 @@ from reportes import generarReporte, imprimirTicket
 
 def main():
     PRECIO_ENTRADA = 4000
-    recaudacion = []  
-    usuarios = usuarios_registrados.copy() 
+    recaudacion = []
     
     while True:
-        descuento = loginUsuarios(usuarios)  
+        descuento = loginUsuarios()  
         
         if descuento == 'reporte':
             generarReporte(recaudacion)  

@@ -7,16 +7,23 @@ snacks = [
 ]
 
 def seleccionarSnack():
-    print("Snacks disponibles: ")
-    for snack in snacks:
-        print(f"{snack[0]}- {snack[1]} / ${snack[2]}")
-    eleccion = int(input("Seleccione el snack que desea llevar: "))
-    
-    while eleccion < 1 or eleccion > 5:
-        print("Opción incorrecta, ingrese un valor válido.")
+    try:
+        print("Snacks disponibles: ")
+        for snack in snacks:
+            print(f"{snack[0]}- {snack[1]} / ${snack[2]}")
         eleccion = int(input("Seleccione el snack que desea llevar: "))
-    
-    snackElegido = snacks[eleccion - 1]
-    print(f"Usted eligió: {snackElegido[1]} - Total: ${snackElegido[2]}")
-    
-    return snackElegido[1], snackElegido[2]
+        1/eleccion
+        if eleccion < 0:
+            raise ValueError
+        print(f"Usted eligió: {snackElegido[1]} - Total: ${snackElegido[2]}")
+        
+        return snackElegido[1], snackElegido[2]
+    except IndexError:
+        print("Opción incorrecta, ingrese un valor válido.")
+        seleccionarSnack()
+    except ValueError:
+        print("Opción incorrecta, ingrese un valor válido.")
+        seleccionarSnack()
+    except ZeroDivisionError:
+        print("Opción incorrecta, ingrese un valor válido.")
+        seleccionarSnack()
