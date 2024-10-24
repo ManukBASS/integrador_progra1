@@ -19,7 +19,7 @@ def main():
             print("Excelente recaudación! Nos vemos mañana :)")
             return
         
-        pelicula, sala = seleccionarPelicula()
+        pelicula, sala, horario = seleccionarPelicula()
 
         snacksSeleccionados = []
         snack_elegido = seleccionarSnack()
@@ -62,7 +62,7 @@ Ingrese una opción: """))
                 print(f"Total sin descuento: ${total_a_pagar:.2f}")
             
 
-            imprimirTicket(pelicula, asientosSeleccionados, snacksSeleccionados, total_entradas, total_snacks, total_a_pagar, recaudacion)
+            imprimirTicket(pelicula, asientosSeleccionados, snacksSeleccionados, total_entradas, total_snacks, total_a_pagar, recaudacion, horario)
 
             recaudacion.append(total_a_pagar)
 
