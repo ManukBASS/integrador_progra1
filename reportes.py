@@ -1,9 +1,12 @@
-def imprimirTicket(pelicula, asientosSeleccionados, snacks, total_entradas, total_snacks, total_a_pagar, lista_recaudacion):
+def imprimirTicket(pelicula, asientosSeleccionados, snacks, total_entradas, total_snacks, total_a_pagar, lista_recaudacion,horario):
+    nombre = pelicula["nombre"]
+    numerosala = pelicula["numerosala"]
     print("\n" + "="*30)
     print(" " * 9 + "TICKET DE CINE")
     print("="*30)
-    print(f"Película: {pelicula[1]}".ljust(30) + f"${total_entradas:.2f}")
-    print(f"Sala: {pelicula[0]}")
+    print(f"Película: {nombre}".ljust(30) + f"${total_entradas:.2f}")
+    print(f"Sala: {numerosala}")
+    print(f"Horario: {horario} hs")
     print(f"Asientos: {', '.join(asientosSeleccionados)}")
 
     if snacks:
