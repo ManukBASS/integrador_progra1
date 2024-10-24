@@ -15,6 +15,7 @@ def seleccionarSnack():
         1/eleccion
         if eleccion < 0:
             raise ValueError
+        snackElegido = snacks[eleccion - 1]
         print(f"Usted eligió: {snackElegido[1]} - Total: ${snackElegido[2]}")
         
         return snackElegido[1], snackElegido[2]
