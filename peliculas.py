@@ -68,39 +68,3 @@ def mostrarSala(sala):
     for i, fila in enumerate(sala):
         # Usamos '  '.join(fila) para unir los símbolos correctamente en cada fila
         print(f"{filas[i]}  {'  '.join(fila)}")
-
-# Función para seleccionar un asiento de manera manual o aleatoria
-def seleccionarAsiento(sala):
-    mostrarSala(sala)
-
-    opcion = int(input("\n¿Quiere elegir asiento o desea uno aleatorio?\n1 - Elegir\n2 - Aleatorio\nIngrese una opción: "))
-    
-    if opcion == 1:
-        asiento = input("Ingrese el asiento que desea (Ej: B2): ").upper()
-        fila = asiento[0]  # Ej: 'B'
-        columna = int(asiento[1]) - 1  # Ej: '2', convierte a índice 1
-
-        # Convertir fila en índice numérico
-        fila_idx = ord(fila) - ord('A')
-
-        # Verificar si el asiento está disponible
-        if sala[fila_idx][columna] == "🟢":
-            sala[fila_idx][columna] = "🔴"
-            print(f"Asiento {fila}{columna+1} reservado con éxito.")
-        else:
-            print("El asiento ya está ocupado. Seleccione otro.")
-            return seleccionarAsiento(sala)  # Volver a intentar si está ocupado
-
-    elif opcion == 2:
-        # Elegir asiento aleatorio disponible
-        asientos_disponibles = [(i, j) for i in range(4) for j in range(6) if sala[i][j] == "🟢"]
-        if asientos_disponibles:
-            fila_idx, columna = random.choice(asientos_disponibles)
-            sala[fila_idx][columna] = "🔴"
-            print(f"Asiento aleatorio {chr(fila_idx + ord('A'))}{columna+1} asignado.")
-        else:
-            print("No quedan asientos disponibles.")
-    return sala
-
-
-
