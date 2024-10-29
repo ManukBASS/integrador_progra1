@@ -11,7 +11,17 @@ def main():
     recaudacion=[]
     while flag:
         descuento = loginUsuarios()  
-            
+        if descuento == 'reporte':
+                generarReporte()  
+                print("Excelente recaudación! Nos vemos mañana :)")
+                try: 
+                    file = open("recaudacion.csv", mode="wt")
+                except IOError:
+                    print("No se pudo abrir el archivo deseado")
+                else:
+                    file.write()
+                file.close()
+                break   
         pelicula, sala, horario = seleccionarPelicula()
 
         snacksSeleccionados = []
@@ -44,18 +54,7 @@ def main():
             elif descuento == 0:
                 total_a_pagar = calcular_total_sin_descuento(total_entradas, total_snacks)
                 print(f"Total sin descuento: ${total_a_pagar:.2f}")
-                imprimirTicket(pelicula, asientosSeleccionados, snacksSeleccionados, total_entradas, total_snacks, total_a_pagar, recaudacion, horario)
-            elif descuento == 'reporte':
-                generarReporte()  
-                print("Excelente recaudación! Nos vemos mañana :)")
-                try: 
-                    file = open("recaudacion.csv", mode="wt")
-                except IOError:
-                    print("No se pudo abrir el archivo deseado")
-                else:
-                    file.write()
-                file.close()
-                flag = False
+            imprimirTicket(pelicula, asientosSeleccionados, snacksSeleccionados, total_entradas, total_snacks, total_a_pagar, recaudacion, horario)
  
 
 if __name__ == "__main__":

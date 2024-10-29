@@ -38,7 +38,6 @@ def generarReporte(total_recaudacion=0, csv_reader=None, archivo=None):
         try:
             archivo = open("recaudacion.csv", 'r')
             csv_reader = csv.reader(archivo,delimiter=';')
-            next(csv_reader)  # Omitir la cabecera si existe
         except IOError:
             print("No se pudo abrir el archivo.")
             return 0
