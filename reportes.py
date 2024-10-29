@@ -32,25 +32,30 @@ def imprimirTicket(pelicula, asientosSeleccionados, snacks, total_entradas, tota
         file.write(ticket_str+"\n")
     file.close()
 import csv
-def generarReporte(archivo_csv,index_columna=3, total_recaudacion=0, csv_reader=None):
-
+def generarReporte(total_recaudacion=0, csv_reader=None, archivo=None):
+    # Abrir el archivo solo en la primera llamada
     if csv_reader is None:
-        csv_reader = csv.reader(archivo_csv)
-        next(csv_reader)  # Omitir la cabecera si existe
+        try:
+            archivo = open("recaudacion.csv", 'r')
+            csv_reader = csv.reader(archivo,delimiter=';')
+            next(csv_reader)  # Omitir la cabecera si existe
+        except IOError:
+            print("No se pudo abrir el archivo.")
+            return 0
+
     try:
         # Leer la siguiente fila y sumar el valor de la columna 4
         fila = next(csv_reader)
-        total_recaudacion += int(fila[index_columna])
-        # Llamada recursiva con la suma actualizada
-        return generarReporte(archivo_csv,index_columna,total_recaudacion)
+        total_recaudacion += float(fila[3])
+        # Llamada recursiva con la suma actualizada y csv_reader persistente
+        return generarReporte(total_recaudacion, csv_reader,archivo)
     except StopIteration:
-        # Caso base: no quedan filas, cerrar archivo y retornar la suma final
+        # Caso base: no quedan filas, cerrar archivo y mostrar el reporte
+        if archivo:
+            archivo.close()
         print("\n--- 💰 Reporte del Día 💰 ---")
         print(f"Total recaudado: ${total_recaudacion:.2f}")
         return total_recaudacion
-        
-    except IOError:
-        print("No se pudo abrir el archivo")
 
 
 
