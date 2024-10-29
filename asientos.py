@@ -8,8 +8,7 @@ def asientosDisponibles(asientos):
         print(f"{chr(65+index)} " + " ".join(fila))
 
 def seleccionarAsiento(asientos):
-    preguntaInicial = int(input("""
-¿Quiere elegir asiento o desea uno aleatorio? 
+    preguntaInicial = int(input("""¿Quiere elegir asiento o desea uno aleatorio? 
 1 - Elegir
 2 - Aleatorio
 Ingrese una opción: """))
@@ -19,7 +18,7 @@ Ingrese una opción: """))
         asiento = input("Ingrese el asiento que desea (Ej: B2): ")
         filaIndex = ord(asiento[0].upper()) - 65
         columnaIndex = int(asiento[1]) - 1
-        while int(asiento[1]) < 1 or int(asiento[1]) > 6 or ord(asiento[0].upper())<65 or ord(asiento[0].upper())>68 or len(asiento) > 2:
+        while int(asiento[1]) < 1 or int(asiento[1]) > 6 or ord(asiento[0].upper())<65 or ord(asiento[0].upper())>68 or len(asiento) > 2 or len(asiento) < 2:
             asiento = input("Asiento inexistente. Ingrese el asiento que desea (Ej: B2): ")
             filaIndex = ord(asiento[0].upper()) - 65
             columnaIndex = int(asiento[1]) - 1

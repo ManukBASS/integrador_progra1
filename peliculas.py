@@ -1,10 +1,10 @@
 import random
 
-sala=[["🟢" for _ in range(6)] for _ in range(4)]
+
 peliculas = {
-    1: {"nombre": "Shrek 2", "horarios": ["14:00", "18:00", "22:00"], "numerosala":1, "sala":sala },
-    2: {"nombre": "High School Musical 3", "horarios": ["14:00", "18:00", "22:00"], "numerosala":2, "sala":sala },
-    3: {"nombre": "Interestelar", "horarios": ["14:00", "18:00", "22:00"],"numerosala":3, "sala":sala }
+    1: {"nombre": "Shrek 2", "horarios": ["14:00", "18:00", "22:00"], "numerosala":1, "sala":[["🟢" for _ in range(6)] for _ in range(4)]},
+    2: {"nombre": "High School Musical 3", "horarios": ["14:00", "18:00", "22:00"], "numerosala":2, "sala":[["🟢" for _ in range(6)] for _ in range(4)]},
+    3: {"nombre": "Interestelar", "horarios": ["14:00", "18:00", "22:00"],"numerosala":3, "sala":[["🟢" for _ in range(6)] for _ in range(4)]}
 }
 
 def seleccionarPelicula():

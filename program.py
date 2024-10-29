@@ -3,7 +3,7 @@ from users import loginUsuarios
 from snacks import seleccionarSnack
 from peliculas import seleccionarPelicula
 from asientos import seleccionarAsiento
-from reportes import generarReporte, imprimirTicket
+from reportes import imprimirTicket
 from reporteDiario import generarReporteDiario
 
 def main():
@@ -34,17 +34,21 @@ def main():
         asientosSeleccionados.append(asiento)
             
         otroAsiento = int(input("""¿Desea elegir otro asiento?\n1 - Si\n2 - No\nIngrese una opción: """))
-    
-        while otroAsiento == 1:
-            asiento, sala = seleccionarAsiento(sala)
-            asientosSeleccionados.append(asiento)
-            otroAsiento = int(input("""¿Desea elegir otro asiento?\n1 - Si\n2 - No\nIngrese una opción: """))
-                
-        if otroAsiento == 2:
-            print("""Por favor, retire su entrada y deje pasar al siguiente usuario\n¡Disfrute su película!""")
-            total_snacks = sum(snack[1] for snack in snacksSeleccionados)  
-            total_entradas = PRECIO_ENTRADA * len(asientosSeleccionados)  
-                
+
+        while otroAsiento not in [1,2]:
+            try:
+                while otroAsiento == 1:
+                    asiento, sala = seleccionarAsiento(sala)
+                    asientosSeleccionados.append(asiento)
+                    otroAsiento = int(input("""¿Desea elegir otro asiento?\n1 - Si\n2 - No\nIngrese una opción: """))
+                        
+                if otroAsiento == 2:
+                    print("""Por favor, retire su entrada y deje pasar al siguiente usuario\n¡Disfrute su película!""")
+                    total_snacks = sum(snack[1] for snack in snacksSeleccionados)  
+                    total_entradas = PRECIO_ENTRADA * len(asientosSeleccionados)  
+            except ValueError:
+                    print("Entrada no válida. Por favor, ingresa un número.")
+                    otroAsiento = int(input("""¿Desea elegir otro asiento?\n1 - Si\n2 - No\nIngrese una opción: """))        
 
             calcular_total = lambda entradas, snacks, desc: (entradas + snacks) * (1 - desc)
             calcular_total_sin_descuento = lambda entradas, snacks: entradas + snacks
