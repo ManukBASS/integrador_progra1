@@ -4,6 +4,7 @@ from snacks import seleccionarSnack
 from peliculas import seleccionarPelicula
 from asientos import seleccionarAsiento
 from reportes import generarReporte, imprimirTicket
+from reporteDiario import generarReporteDiario
 
 def main():
     flag = True
@@ -12,14 +13,14 @@ def main():
     while flag:
         descuento = loginUsuarios()  
         if descuento == 'reporte':
-                generarReporte()  
+                generarReporteDiario()  
                 print("Excelente recaudación! Nos vemos mañana :)")
                 try: 
                     file = open("recaudacion.csv", mode="wt")
                 except IOError:
                     print("No se pudo abrir el archivo deseado")
                 else:
-                    file.write()
+                    file.write("")
                 file.close()
                 break   
         pelicula, sala, horario = seleccionarPelicula()
