@@ -8,40 +8,48 @@ def asientosDisponibles(asientos):
         print(f"{chr(65+index)} " + " ".join(fila))
 
 def seleccionarAsiento(asientos):
-    preguntaInicial = int(input("""¿Quiere elegir asiento o desea uno aleatorio? 
-1 - Elegir
-2 - Aleatorio
-Ingrese una opción: """))
-    
-    if preguntaInicial == 1:
-        asientosDisponibles(asientos)
-        asiento = input("Ingrese el asiento que desea (Ej: B2): ")
-        filaIndex = ord(asiento[0].upper()) - 65
-        columnaIndex = int(asiento[1]) - 1
-        while int(asiento[1]) < 1 or int(asiento[1]) > 6 or ord(asiento[0].upper())<65 or ord(asiento[0].upper())>68 or len(asiento) > 2 or len(asiento) < 2:
-            asiento = input("Asiento inexistente. Ingrese el asiento que desea (Ej: B2): ")
+    try:
+        preguntaInicial = int(input("""
+    ¿Quiere elegir asiento o desea uno aleatorio? 
+    1 - Elegir
+    2 - Aleatorio
+    Ingrese una opción: """))
+        
+        if preguntaInicial == 1:
+            asientosDisponibles(asientos)
+            asiento = input("Ingrese el asiento que desea (Ej: B2): ")
             filaIndex = ord(asiento[0].upper()) - 65
             columnaIndex = int(asiento[1]) - 1
-        
-        
+            while int(asiento[1]) < 1 or int(asiento[1]) > 6 or ord(asiento[0].upper())<65 or ord(asiento[0].upper())>68 or len(asiento) !=2 or asiento.isalpha():
+                asiento = input("Asiento inexistente. Ingrese el asiento que desea (Ej: B2): ")
+                filaIndex = ord(asiento[0].upper()) - 65
+                columnaIndex = int(asiento[1]) - 1
+            
+            
 
-        if asientos[filaIndex][columnaIndex] == "🟢":
-            asientos[filaIndex][columnaIndex] = "🔴"
-            print(f"Asiento {asiento} seleccionado")
+            if asientos[filaIndex][columnaIndex] == "🟢":
+                asientos[filaIndex][columnaIndex] = "🔴"
+                print(f"Asiento {asiento} seleccionado")
+            else:
+                print("Asiento no disponible. Por favor, elija otro asiento.")
+                return seleccionarAsiento(asientos)
+
+        elif preguntaInicial == 2:
+            asientoSeleccionado, asientosActualizados = seleccionarAsientoAleatorio(asientos)
+            asientosDisponibles(asientosActualizados)
+            return asientoSeleccionado, asientosActualizados
+
         else:
-            print("Asiento no disponible. Por favor, elija otro asiento.")
+            print("Opción incorrecta. Por favor, ingrese una opción válida.")
             return seleccionarAsiento(asientos)
 
-    elif preguntaInicial == 2:
-        asientoSeleccionado, asientosActualizados = seleccionarAsientoAleatorio(asientos)
-        asientosDisponibles(asientosActualizados)
-        return asientoSeleccionado, asientosActualizados
-
-    else:
-        print("Opción incorrecta. Por favor, ingrese una opción válida.")
+        return asiento, asientos
+    except ValueError:
+        print("Opción no válida. Por favor, ingresa una opción correcta")
         return seleccionarAsiento(asientos)
-
-    return asiento, asientos
+    except IndexError:
+        print("Opción no válida. Por favor, ingresa una opción correcta")
+        return seleccionarAsiento(asientos)
 
 def seleccionarAsientoAleatorio(asientos):
     filasDisponibles = [i for i, fila in enumerate(asientos) if "🟢" in fila]
