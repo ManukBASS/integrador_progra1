@@ -1,13 +1,16 @@
 import random
 
-diccionariohorario={"14:00": [["🟢" for _ in range(6)] for _ in range(4)], 
-                    "18:00": [["🟢" for _ in range(6)] for _ in range(4)], 
-                    "22:00": [["🟢" for _ in range(6)] for _ in range(4)]}
 
 peliculas = {
-    1: {"nombre": "Shrek 2", "horarios": diccionariohorario.copy(), "numerosala": 1},
-    2: {"nombre": "High School Musical 3", "horarios": diccionariohorario.copy(), "numerosala": 2},
-    3: {"nombre": "Interestelar", "horarios": diccionariohorario.copy(), "numerosala": 3}}
+    1: {"nombre": "Shrek 2", "horarios": {"14:00": [["🟢" for _ in range(6)] for _ in range(4)], 
+                    "18:00": [["🟢" for _ in range(6)] for _ in range(4)], 
+                    "22:00": [["🟢" for _ in range(6)] for _ in range(4)]}, "numerosala": 1},
+    2: {"nombre": "High School Musical 3", "horarios": {"14:00": [["🟢" for _ in range(6)] for _ in range(4)], 
+                    "18:00": [["🟢" for _ in range(6)] for _ in range(4)], 
+                    "22:00": [["🟢" for _ in range(6)] for _ in range(4)]}, "numerosala": 2},
+    3: {"nombre": "Interestelar", "horarios": {"14:00": [["🟢" for _ in range(6)] for _ in range(4)], 
+                    "18:00": [["🟢" for _ in range(6)] for _ in range(4)], 
+                    "22:00": [["🟢" for _ in range(6)] for _ in range(4)]}, "numerosala": 3}}
 
 def seleccionarPelicula():
     print("Películas en cartelera: ")

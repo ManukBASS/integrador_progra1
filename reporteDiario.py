@@ -17,15 +17,6 @@ def leer_recaudacion():
         file.close()
     return datos
 
-def leer_usuarios():
-    usuarios = []
-    try:
-        with open("usuarios.txt", "rt") as file:
-            for line in file:
-                usuarios.append(line.strip())
-    except IOError:
-        print("El archivo de usuarios no existe.")
-    return usuarios
 def leer_ranking():
     datospeliculas = []
     try:
@@ -88,9 +79,12 @@ def generarReporteDiario():
     print("Ranking de ventas por snack:")
     for snack, cantidad in sorted(conteo_snacks.items(), key=lambda x: x[1], reverse=True):
         print(f"{snack}: {cantidad} ventas")
+    print("=" * 40)
     print("Ranking de ventas por pelicula:")
     for pelicula, cantidad in sorted(conteo_peliculas.items(), key=lambda x: x[1], reverse=True):
         print(f"{pelicula}: {cantidad} entradas vendidas para esta pelicula")
+    print("=" * 40)
+    print("Ranking de ventas por horario:")
     for horario, cantidad in sorted(conteo_horarios.items(), key=lambda x: x[1], reverse=True):
         print(f"{horario}: {cantidad} entradas vendidas para este horario")
     print("📅 ¡Fin del reporte del día!")
