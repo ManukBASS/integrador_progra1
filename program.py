@@ -5,6 +5,7 @@ from peliculas import seleccionarPelicula
 from asientos import seleccionarAsiento
 from reportes import imprimirTicket
 from reporteDiario import generarReporteDiario
+from sumaentradas import generarReporteEntradas
 
 def main():
     flag = True
@@ -15,14 +16,7 @@ def main():
         if descuento == 'reporte':
                 generarReporteDiario()  
                 print("Excelente recaudación! Nos vemos mañana :)")
-                try: 
-                    file = open("recaudacion.csv", mode="wt")
-                except IOError:
-                    print("No se pudo abrir el archivo deseado")
-                else:
-                    file.write("")
-                file.close()
-                break   
+                break 
         pelicula, sala, horario = seleccionarPelicula()
 
         snacksSeleccionados = []
@@ -31,8 +25,7 @@ def main():
 
         asientosSeleccionados = []
         asiento, sala = seleccionarAsiento(sala)
-        asientosSeleccionados.append(asiento)
-            
+        asientosSeleccionados.append(asiento)    
         exito = 0
         while exito == 0:
             try:
@@ -67,7 +60,6 @@ def main():
             total_a_pagar = calcular_total_sin_descuento(total_entradas, total_snacks)
             print(f"Total sin descuento: ${total_a_pagar:.2f}")
         imprimirTicket(pelicula, asientosSeleccionados, snacksSeleccionados, total_entradas, total_snacks, total_a_pagar, recaudacion, horario)
- 
-
+        generarReporteEntradas(pelicula,asientosSeleccionados,horario)
 if __name__ == "__main__":
     main()

@@ -26,33 +26,11 @@ def imprimirTicket(pelicula, asientosSeleccionados, snacks, total_entradas, tota
     except IOError:
         print("No se pudo abrir el archivo")
     else:
-        snacknombre,snackprecio = snacks[0]
+        snacknombre = snacks[0]
         ticket = (str(nombre), str(snacknombre),str(horario), f"{total_a_pagar:.2f}")
         ticket_str = ';'.join(ticket)  
         file.write(ticket_str+"\n")
     file.close()
-# import csv
-# def generarReporte(total_recaudacion=0, csv_reader=None, archivo=None):
-#     if csv_reader is None:
-#         try:
-#             archivo = open("recaudacion.csv", 'r')
-#             csv_reader = csv.reader(archivo,delimiter=';')
-#         except IOError:
-#             print("No se pudo abrir el archivo.")
-#             return 0
-
-#     try:
-#         fila = next(csv_reader)
-#         total_recaudacion += float(fila[3])
-#         return generarReporte(total_recaudacion, csv_reader,archivo)
-#     except StopIteration:
-#         if archivo:
-#             archivo.close()
-#         print("\n--- 💰 Reporte del Día 💰 ---")
-#         print(f"Total recaudado: ${total_recaudacion:.2f}")
-#         return total_recaudacion
-
-
 
 
     

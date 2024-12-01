@@ -32,7 +32,6 @@ def loginUsuarios():
                 flagAlnum = user.isalpha()
             try:
                 file = open("usuarios.txt", mode='at')
-                # si no funciona directo, fijarse 2 comandos fall tell, pos del puntero en el archivo, file seek posiciona el puntero en el registro 
             except IOError:
                 print("No se pudo abrir el archivo")
             else:
@@ -46,4 +45,4 @@ def loginUsuarios():
             return 'reporte'
     except ValueError:
         print("Por favor, ingrese un valor numérico")
-        loginUsuarios()
+        return loginUsuarios()

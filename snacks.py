@@ -21,10 +21,10 @@ def seleccionarSnack():
         return snackElegido[1], snackElegido[2]
     except IndexError:
         print("Opción incorrecta, ingrese un valor válido.")
-        seleccionarSnack()
+        return seleccionarSnack()
     except ValueError:
         print("Opción incorrecta, ingrese un valor válido.")
-        seleccionarSnack()
+        return seleccionarSnack()
     except ZeroDivisionError:
         print("Opción incorrecta, ingrese un valor válido.")
-        seleccionarSnack()
+        return seleccionarSnack()
