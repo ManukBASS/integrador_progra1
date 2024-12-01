@@ -3,7 +3,7 @@ def generarReporteEntradas(pelicula,asiento,horario):
     nombre = pelicula["nombre"]
 
     try:
-        archivo = open("recaudacion.csv", mode='at')
+        archivo = open("reportepeliculas.csv", mode='at')
     except IOError:
         print("No se pudo abrir el archivo")
     else:

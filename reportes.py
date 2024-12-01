@@ -26,8 +26,9 @@ def imprimirTicket(pelicula, asientosSeleccionados, snacks, total_entradas, tota
     except IOError:
         print("No se pudo abrir el archivo")
     else:
-        snacknombre = snacks[0]
-        ticket = (str(nombre), str(snacknombre),str(horario), f"{total_a_pagar:.2f}")
+        snack = snacks[0]
+        snacknombre, snackprecio= snack
+        ticket = (str(nombre),str(snacknombre),f"{total_a_pagar:.2f}")
         ticket_str = ';'.join(ticket)  
         file.write(ticket_str+"\n")
     file.close()
